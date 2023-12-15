@@ -56,8 +56,10 @@ export class JobListComponent implements OnInit {
         this.route.navigate([`jobs/update/${id}`]);
      }
      deleteJob(id:any){
+      alert(id);
       this.jobService.deleteJob(id).subscribe(response=>{
         console.log(response);
+        this.getJobs();
       })
      }
    

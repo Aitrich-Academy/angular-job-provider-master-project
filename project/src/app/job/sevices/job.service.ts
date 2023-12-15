@@ -44,7 +44,7 @@ export class JobService {
   }
    
   deleteJob(id:any){
-    return this.http.delete(this.baseurl+'api/v1/company/'+id+'/job-provider/'+this.companyId+'/job/'+this.jobProviderId);
+    return this.http.delete(this.baseurl+'api/v1/company/'+this.companyId+'/job-provider/'+this.jobProviderId+'/job/'+ id);
   }
     
 }

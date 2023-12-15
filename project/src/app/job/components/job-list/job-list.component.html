@@ -36,10 +36,16 @@
                 </div>
 
                 <div class="upadate">
-                    <i class="bi bi-pencil-square" style="font-size: 20px; margin-top:20px;"
-                    (click)="updateJob(jobList.id)"></i> 
+                    <!-- <i class="bi bi-pencil-square" style="font-size: 20px; margin-top:20px;"
+                    (click)="updateJob(jobList.id)"></i>  -->
+                    <button type="button" class="btn btn-primary" (click)="updateJob(jobList.id)">
+                        <i class="bi bi-pencil-square"></i> Update
+                      </button>
                     <!-- <i class="fa fa-trash" aria-hidden="true" (click)="deleteJob(jobList.id)">Delete</i> -->
                     <!-- <mat-icon (click)="deleteJob(jobList.id)">delete</mat-icon> -->
+                    <button type="button" class="btn btn-danger" (click)="deleteJob(jobList.id)">
+                        <i class="bi bi-trash"></i> Delete
+                      </button>
                     <button
                         style="margin-left: 350px;  margin-top:20px rgb(45, 43, 43); border: none;">schedule</button>
                 </div>

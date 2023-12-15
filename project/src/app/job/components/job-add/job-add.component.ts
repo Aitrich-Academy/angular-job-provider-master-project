@@ -24,7 +24,7 @@ export class JobAddComponent {
       // Define form controls with validation rules
       jobTitle: ['', Validators.required],
       
-      locationName: ['', Validators.required],
+      locationId: ['', Validators.required],
       industryName:['',Validators.required],
       jobSummary: ['', Validators.required],
       jobCategoryName: ['', [Validators.required]],
@@ -42,7 +42,9 @@ export class JobAddComponent {
     const jobData: addJob = this.addJobForm.value;
       alert(jobData);
       const companyId = localStorage.getItem('companyId');
+      jobData.postedByNavigationFirstName=localStorage.getItem('jobProviderId');
       if(companyId){
+
     this.jobService.addJob(jobData).subscribe(
       (res: any) => {
         console.log(res);
