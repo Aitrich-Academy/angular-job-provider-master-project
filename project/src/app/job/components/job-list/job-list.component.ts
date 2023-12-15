@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { addJob } from '../../models/job';
 import { JobService } from '../../sevices/job.service';
+import { Route, Router } from '@angular/router';
 
 @Component({
   selector: 'app-job-list',
@@ -14,8 +15,8 @@ export class JobListComponent implements OnInit {
   totalItems = 0;
   itemsPerPage = 5;
   searchQuery: string = '';
-
-  constructor(private jobService: JobService) { }
+  jobId:any;
+  constructor(private jobService: JobService,private route:Router) { }
 
   ngOnInit() {
     this.getJobs();
@@ -25,6 +26,8 @@ export class JobListComponent implements OnInit {
       ).subscribe(
       (res: any) => {
         this.jobs = res;
+        console.log(res);
+        this.jobId=res.id;
         // this.currentPage = res.currentPage;
         // this.totalPages = res.totalPages;
         // this.totalItems = res.totalItems;
@@ -48,7 +51,15 @@ export class JobListComponent implements OnInit {
      this.getJobs();
      }
  
- 
+     updateJob(id:any){
+      alert("hello");
+        this.route.navigate([`jobs/update/${id}`]);
+     }
+     deleteJob(id:any){
+      this.jobService.deleteJob(id).subscribe(response=>{
+        console.log(response);
+      })
+     }
    
   }
   

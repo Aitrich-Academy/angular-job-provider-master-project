@@ -25,7 +25,7 @@ const routes: Routes = [
         component: JobViewComponent
       },
       {
-        path: 'update',
+        path: 'update/:id',
         component: JobUpdateComponent
       }
     ]

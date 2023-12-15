@@ -35,10 +35,15 @@
 
                 </div>
 
-                <div class="upadate"><i class="bi bi-pencil-square" style="font-size: 20px; margin-top:20px;"
-                        [routerLink]="['/jobs/update']"></i> <button
+                <div class="upadate">
+                    <i class="bi bi-pencil-square" style="font-size: 20px; margin-top:20px;"
+                    (click)="updateJob(jobList.id)"></i> 
+                    <!-- <i class="fa fa-trash" aria-hidden="true" (click)="deleteJob(jobList.id)">Delete</i> -->
+                    <!-- <mat-icon (click)="deleteJob(jobList.id)">delete</mat-icon> -->
+                    <button
                         style="margin-left: 350px;  margin-top:20px rgb(45, 43, 43); border: none;">schedule</button>
                 </div>
+                
                 
 
             </ng-container>

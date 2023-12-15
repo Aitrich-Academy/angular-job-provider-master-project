@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { JobService } from '../../sevices/job.service';
 import { Job, addJob } from '../../models/job';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-job-update',
@@ -13,7 +14,7 @@ export class JobUpdateComponent {
   addJobForm!: FormGroup;
   job: addJob;
 
-  constructor(private formBuilder: FormBuilder, private jobService: JobService) { }
+  constructor(private formBuilder: FormBuilder, private jobService: JobService,private route:ActivatedRoute) { }
   // job: Job[] = [];
 
   ngOnInit() {
@@ -28,6 +29,10 @@ export class JobUpdateComponent {
       salary: ['', [Validators.required,]],
      workplace: ['', [Validators.required,]]
       
+    });
+    this.route.params.subscribe(params => {
+      const id = params['id'];
+      // Use the received parameter
     });
   }
 
