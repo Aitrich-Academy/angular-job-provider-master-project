@@ -10,8 +10,10 @@ import { Observable } from 'rxjs';
 })
 export class JobService {
   baseurl = environment.baseurl;
+  companyId = localStorage.getItem('companyId');
+  jobProviderId=localStorage.getItem('jobProviderId');
   constructor(private http: HttpClient) { }
-getJob(page: number, limit: number, query?: string) {
+  getJob(page: number, limit: number, query?: string) {
     let params = new HttpParams()
       .set('page', page.toString())
       .set('limit', limit.toString());
@@ -24,7 +26,7 @@ getJob(page: number, limit: number, query?: string) {
   }
 
   addJob(job: addJob) {
-    return this.http.post(`${this.baseurl}/jobs`, job);
+    return this.http.post(this.baseurl+'company/'+this.companyId+'/job-provider/'+this.jobProviderId+'/job',job);
   }
 
   updateJob(job:addJob):Observable<any>{

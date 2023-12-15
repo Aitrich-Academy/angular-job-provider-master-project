@@ -31,8 +31,11 @@
 
         <div class="form-group p-4">
           <label for="exampleInputUsername1">Location</label>
-          <input type="Username" class="form-control py-4" id="exampleInputUsername1" formControlName="locationName"
-            placeholder="please enter your location">
+          <select class="form-control" formControlName="locationName">
+            <option *ngFor="let location of locationName" [value]="location.id">
+              {{ location.name }}
+            </option>
+          </select>
           <div class="error-message"
             *ngIf="addJobForm.controls['locationName'].invalid && addJobForm.controls['locationName'].touched">
             Location is required.
@@ -41,8 +44,11 @@
 
         <div class="form-group p-4">
           <label for="IndustryName">IndustryName</label>
-          <input type="Username" class="form-control py-4" id="industryName" formControlName="industryName"
-            placeholder="please enter your industryName">
+          <select class="form-control" formControlName="industryName">
+            <option *ngFor="let industry of industryName" [value]="industry.id">
+              {{ industry.name }}
+            </option>
+          </select>
           <div class="error-message"
             *ngIf="addJobForm.controls['industryName'].invalid && addJobForm.controls['industryName'].touched">
             Location is required.
@@ -62,11 +68,14 @@
 
       <div class="form-group p-4">
           <label for="exampleInputEmail1">jobCategoryName</label>
-          <input type="email" class="form-control  py-4" id="jobCategoryName" formControlName="jobCategoryName"
-            aria-describedby="emailHelp" placeholder="jobCategoryName">
+          <select class="form-control" formControlName="jobCategoryName">
+            <option *ngFor="let category of catogoryName" [value]="category.id">
+              {{ category.name }}
+            </option>
+          </select>
           <div class="error-message"
             *ngIf="addJobForm.controls['jobCategoryName'].invalid && addJobForm.controls['jobCategoryName'].touched">
-            Job Type is required.
+            Job category is required.
           </div>
 
         </div> 
@@ -93,14 +102,10 @@
           </div> 
 
         </div> 
-
-
-        <div class="row">
+       <div class="row">
           <div class="col-md-4 p-4 ms-3 d-inline"><button type="submit" class="btn p-2 text-white px-5"
               style="background-color: #20A6FC;">Post Job</button></div>
-
-
-        </div>
+      </div>
 
       </div>
     </div>

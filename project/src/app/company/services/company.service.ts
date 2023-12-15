@@ -25,5 +25,8 @@ export class CompanyService {
     getLocations(): Observable<any[]> {
       return this.http.get<any[]>(this.baseurl+'api/v1/GetLocations');
     }
+    getCategories(): Observable<any[]> {
+      return this.http.get<any[]>(this.baseurl+'api/v1/GetCategories');
+    }
   
 }

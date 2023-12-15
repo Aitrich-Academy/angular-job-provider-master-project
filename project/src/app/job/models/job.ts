@@ -12,10 +12,10 @@ export interface addJob {
     id:string;
     jobTitle?:string;
     jobSummary:string;
-    locationName?:string;
-    industryName?:string;
-    jobCategoryName?:string;
-    type?:string;
-    workplace?:string;
+    locationName?:any;
+    industryName?:any;
+    jobCategoryName?:any;
+    postedByNavigationFirstName?:string;
+   
 }
 
