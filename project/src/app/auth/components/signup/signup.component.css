@@ -1,5 +1,15 @@
-label{font-weight: bold;}
-.custom-radius{
-    border-top-right-radius: 70px;
-    border-bottom-right-radius:70px ;
-}
+
+  h2 {
+    color: #8575e2;
+    margin-bottom: 20px;
+  }
+  .container {
+    max-width: 400px;
+    margin: auto;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(158, 59, 137, 0.1);
+    background-color: #a4bbe4;
+    text-align: center;
+  }
+  
