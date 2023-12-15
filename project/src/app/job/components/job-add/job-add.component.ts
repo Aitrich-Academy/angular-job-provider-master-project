@@ -69,7 +69,7 @@ export class JobAddComponent {
     });
   }
   loadCategories() {
-    this.companyService.getLocations().subscribe((data: any[]) => {
+    this.companyService.getCategories().subscribe((data: any[]) => {
       this.catogoryName = data;
       });
   }

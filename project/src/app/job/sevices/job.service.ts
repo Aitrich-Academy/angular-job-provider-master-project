@@ -27,7 +27,7 @@ export class JobService {
   }
 
   addJob(job: addJob) {
-    return this.http.post(this.baseurl+'company/'+this.companyId+'/job-provider/'+this.jobProviderId+'/job',job);
+    return this.http.post(this.baseurl+'api/v1/company/'+this.companyId+'/job-provider/'+this.jobProviderId+'/job',job);
   }
 
   updateJob(job:addJob):Observable<any>{
@@ -43,6 +43,9 @@ export class JobService {
 
   }
    
+  deleteJob(id:any){
+    return this.http.delete(this.baseurl+'api/v1/company/'+id+'/job-provider/'+this.companyId+'/job/'+this.jobProviderId);
+  }
     
 }
     

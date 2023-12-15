@@ -29,7 +29,8 @@ export class LoginComponent {
         localStorage.setItem('jobProviderId',response.id);
         this.router.navigate(['home']);
         this.companyService.getCompany().subscribe(response=>{
-          localStorage.setItem('companyId',response.id);
+          localStorage.setItem('companyId',response[0].id);
+         console.log(response[0].id);
         })
       },
       (error) => {
