@@ -20,7 +20,6 @@ export class JobListComponent implements OnInit {
   ngOnInit() {
     this.getJobs();
   }
-
   getJobs() {
     this.jobService.getJob(this.currentPage, this.itemsPerPage,this.searchQuery
       ).subscribe(

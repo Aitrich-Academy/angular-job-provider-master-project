@@ -13,6 +13,7 @@ export class JobService {
   companyId = localStorage.getItem('companyId');
   jobProviderId=localStorage.getItem('jobProviderId');
   constructor(private http: HttpClient) { }
+
   getJob(page: number, limit: number, query?: string) {
     let params = new HttpParams()
       .set('page', page.toString())
@@ -22,7 +23,7 @@ export class JobService {
     // if (query) {
     //   params = params.set('search', query);
     // }
-    return this.http.get<any[]>(this.baseurl+'api/v1/jobs');
+    return this.http.get<any[]>(this.baseurl+'api/v1/company/'+this.companyId+'/job-provider/'+this.jobProviderId+'/job');
   }
 
   addJob(job: addJob) {

@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
 import { UserLogin } from '../../models/login';
+import { CompanyService } from 'src/app/company/services/company.service';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +13,7 @@ import { UserLogin } from '../../models/login';
 export class LoginComponent {
   backgroundImageUrl = '../../../../../assets/images/LoginPageImg.png';
 
-  constructor( private authService: AuthService, private router: Router) {}
+  constructor( private authService: AuthService, private router: Router,private companyService:CompanyService) {}
 
   login(loginForm: NgForm) {
     const loginFormvalue = loginForm.value;
@@ -22,12 +23,14 @@ export class LoginComponent {
       password: loginFormvalue.password
     };
   
-    this.authService.login(userlogin).subscribe(
-      (response:any) => {
+    this.authService.login(userlogin).subscribe(response => {
         console.log("login successfully",response.token);
         localStorage.setItem('accessToken',response.token);
         localStorage.setItem('jobProviderId',response.id);
         this.router.navigate(['home']);
+        this.companyService.getCompany().subscribe(response=>{
+          localStorage.setItem('companyId',response.id);
+        })
       },
       (error) => {
         alert('login failed');
