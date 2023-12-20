@@ -29,8 +29,9 @@ export class AddCompanyComponent {
     this.loadLocations();
 }
 addCompany(){
-  alert("hello")
+  // alert("hello")
   if(this.companyForm.valid){
+    // alert("hello");
     const formValues=this.companyForm.value;
     this.addCompanyService.addCompany(formValues).subscribe(response=>{
       alert(response.id);

@@ -6,9 +6,10 @@ export class Job {
     jobType:string='';
     salary:number | undefined;
     onsite:string=''
-  static id: any;
+  static id: string;
 }
 export interface addJob {
+    postedBy: string;
     id:string;
     jobTitle?:string;
     jobSummary:string;
@@ -16,6 +17,7 @@ export interface addJob {
     industryName?:any;
     jobCategoryName?:any;
     postedByNavigationFirstName?:string;
-   
+    companyId:any;
+    postedDate:any;
 }
 

@@ -31,26 +31,26 @@
 
         <div class="form-group p-4">
           <label for="exampleInputUsername1">Location</label>
-          <select class="form-control" formControlName="locationName">
+          <select class="form-control" formControlName="locationId">
             <option *ngFor="let location of locationName" [value]="location.id">
               {{ location.name }}
             </option>
           </select>
           <div class="error-message"
-            *ngIf="addJobForm.controls['locationName'].invalid && addJobForm.controls['locationName'].touched">
+            *ngIf="addJobForm.controls['locationId'].invalid && addJobForm.controls['locationId'].touched">
             Location is required.
           </div>
         </div>
 
         <div class="form-group p-4">
           <label for="IndustryName">IndustryName</label>
-          <select class="form-control" formControlName="industryName">
+          <select class="form-control" formControlName="industryId">
             <option *ngFor="let industry of industryName" [value]="industry.id">
               {{ industry.name }}
             </option>
           </select>
           <div class="error-message"
-            *ngIf="addJobForm.controls['industryName'].invalid && addJobForm.controls['industryName'].touched">
+            *ngIf="addJobForm.controls['industryId'].invalid && addJobForm.controls['industryId'].touched">
             Location is required.
           </div>
         </div>
@@ -68,13 +68,13 @@
 
       <div class="form-group p-4">
           <label for="exampleInputEmail1">jobCategoryName</label>
-          <select class="form-control" formControlName="jobCategoryName">
+          <select class="form-control" formControlName="categoryId">
             <option *ngFor="let category of catogoryName" [value]="category.id">
               {{ category.name }}
             </option>
           </select>
           <div class="error-message"
-            *ngIf="addJobForm.controls['jobCategoryName'].invalid && addJobForm.controls['jobCategoryName'].touched">
+            *ngIf="addJobForm.controls['categoryId'].invalid && addJobForm.controls['categoryId'].touched">
             Job category is required.
           </div>
 

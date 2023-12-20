@@ -14,7 +14,7 @@ export class CompanyService {
   constructor(private http: HttpClient) { }
 
   addCompany(data:company){
-   
+   alert("hello");
       return this.http.post<any>(this.baseurl+'api/Company/job-provider/'+this.jobProviderId+'/company',data);
      }
   

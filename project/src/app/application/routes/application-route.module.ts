@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ApplicationHomeComponent } from '../components/application-home/application-home.component';
 import { ApplicationListComponent } from '../components/application-list/application-list.component';
 import { ApplicationViewComponent } from '../components/application-view/application-view.component';
+import { InterviewViewComponent } from 'src/app/interview/components/interview-view/interview-view.component';
 
 const routes: Routes = [
   {
@@ -18,6 +19,11 @@ const routes: Routes = [
         path: 'view',
         component: ApplicationViewComponent
       }
+      
+      // {
+      //   path: 'schedule/:id',
+      //   component: InterviewViewComponent
+      // }
     ]
   }
 ]

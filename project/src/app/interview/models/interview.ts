@@ -1,6 +1,9 @@
 export class Interview {
-    jobTitle:string;
-    dateOfInterview:string;
-    location:string;
-    time:string;
+    id: string;
+    jobJobTitle:string;
+    jobseekerUsername: string;
+    applicationId:any;
+    date: any;
+    status: any;
+   companyUserUserName: string;
 }

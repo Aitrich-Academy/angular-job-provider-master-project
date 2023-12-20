@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { JobService } from '../../sevices/job.service';
 import { Job, addJob } from '../../models/job';
 import { CompanyService } from 'src/app/company/services/company.service';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-job-add',
@@ -14,6 +15,7 @@ export class JobAddComponent {
   industryName: any[];
   locationName: any[];
   catogoryName:any[];
+  formattedDate: string;
 
   constructor(private formBuilder: FormBuilder, private jobService: JobService,private companyService:CompanyService) { }
   // job: Job[] = [];
@@ -25,11 +27,11 @@ export class JobAddComponent {
       jobTitle: ['', Validators.required],
       
       locationId: ['', Validators.required],
-      industryName:['',Validators.required],
+      industryId:['',Validators.required],
       jobSummary: ['', Validators.required],
-      jobCategoryName: ['', [Validators.required]],
+      categoryId: ['', [Validators.required]],
       // salary: ['', [Validators.required,]],
-      postedByNavigationFirstName:['',[Validators.required]]
+      postedBy:['',[Validators.required]]
      
       // Add more form controls as needed
     });
@@ -41,8 +43,12 @@ export class JobAddComponent {
   onSubmit() {
     const jobData: addJob = this.addJobForm.value;
       alert(jobData);
+      const currentDate = new Date().toISOString();
+      // const formattedDate = this.datePipe.transform(currentDate, 'yyyy-MM-ddTHH:mm:ss.SSSZ');
       const companyId = localStorage.getItem('companyId');
-      jobData.postedByNavigationFirstName=localStorage.getItem('jobProviderId');
+      jobData.companyId=companyId;
+      jobData.postedDate=currentDate;
+      jobData.postedBy=localStorage.getItem('jobProviderId');
       if(companyId){
 
     this.jobService.addJob(jobData).subscribe(
@@ -60,6 +66,7 @@ export class JobAddComponent {
   }
   loadIndustries() {
     this.companyService.getIndustries().subscribe((data: any[]) => {
+      alert(data)
       this.industryName = data;
     });
   }

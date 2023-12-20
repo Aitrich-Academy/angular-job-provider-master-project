@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { InterviewService } from '../../services/interview.service';
 import { Interview } from '../../models/interview';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-interview-view',
@@ -10,31 +11,32 @@ import { Interview } from '../../models/interview';
 })
 export class InterviewViewComponent {
   ScheduleInteriewForm!: FormGroup;
-
-  constructor(private formBuilder: FormBuilder, private jobService: InterviewService) { }
+  id:any;
+  constructor(private formBuilder: FormBuilder, private interviewService: InterviewService,private route: ActivatedRoute) { }
   interview: Interview[] = [];
 
   ngOnInit() {
     // Form initialization
-    this.ScheduleInteriewForm = this.formBuilder.group({
-      // Define form controls with validation rules
-      jobTitle: ['', Validators.required],
-      location: ['', Validators.required],
-      interviewDate: ['', Validators.required],
-      interviewTime: ['', Validators.required]
-      // Add more form controls as needed
-    });
+   
+    
+      this.ScheduleInteriewForm = this.formBuilder.group({
+        selectedDate: ['', Validators.required], // Use Validators if the field is required
+      });
+      this.route.params.subscribe(params => {
+      this.id = params['id'];
+        // Use the received parameter
+      });
   }
 
   onSubmit() {
-    console.log(this.ScheduleInteriewForm.value);
-    this.interview = this.ScheduleInteriewForm.value;
-    // this.jobService.scheduleInterview(this.interview).subscribe(
-    //   (res) => {
-    //     console.log("Interview Scheduled Successfully", res);
-    //   }
-    // );
-  
+    const selectedDate = this.ScheduleInteriewForm.value.selectedDate;
+    console.log('Selected Date:', selectedDate);
+    alert(selectedDate);
+    this.interviewService.scheduleInterview(selectedDate,this.id).subscribe(
+      (res) => {
+        console.log("Interview Scheduled Successfully", res);
+      }
+    );
     this.resetForm();
   }
   resetForm() {

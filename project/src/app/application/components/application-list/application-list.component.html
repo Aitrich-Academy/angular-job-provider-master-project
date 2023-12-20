@@ -25,12 +25,13 @@
                                 <img src="../../../../assets/images/Applications/man.png">
                             </div>
                             <div class="col-md-10 mt-3" style="font-family: 'Inter';">
-                                <h5 class="card-title" style="font-family: 'DM Sans';">{{applicationList.jobSeekerName}}</h5>
+                                <h3 class="card-title" style="font-family: 'DM Sans';">{{applicationList.seekerUserName}}</h3>
                                 <p class="card-text">
-                                    <span><b>Qualification :</b> {{applicationList.jobSeekerQualification}}</span> <br>
-                                    <span><b>Experience :</b> {{applicationList.jobSeekerExperience}}</span>
+                                    <span><b>CoverLetter :</b> {{applicationList.coverLetter}}</span> <br>
+                                    <span><b>Resume Title :</b> {{applicationList.resumeTitle}}</span><br>
+                                    <span><b>Job Post Title :</b> {{applicationList.jobPostJobTitle}}</span>
                                 </p>
-                                <div style="text-align: center;"><a routerLink="/application/view" class="btn btn-primary view-btn">View</a></div>
+                                <div style="text-align: center;"><a (click)="scheduleInterview(applicationList.id)" class="btn btn-primary view-btn">Schedule</a></div>
                                 
                             </div>
                         </div>

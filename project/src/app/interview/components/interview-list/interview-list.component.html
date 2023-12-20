@@ -23,11 +23,12 @@
                     </div>
 
                     <div class="col-md-4">
-                        <h5>{{list.jobTitle}}</h5>
-                        <h6>Date of Interview:{{list.dateOfInterview}}</h6>
-                        <h6>Location/Online:{{list.location}}</h6>
-                        <h6>Time:{{list.time}}</h6>
-                        <button class="custom-button center">View</button>
+                        <h3>{{list.jobJobTitle}}</h3>
+                        <h5>Applicant Name:{{list.jobseekerUsername}}</h5>
+                        <h6>ApplicationId:{{list.applicationId}}</h6>
+                        <h6>Time:{{list.date}}</h6>
+                        <h6>PostedBy:{{list. companyUserUserName}}</h6>
+                        <button class="custom-button center" (click)="cancelInterview(list.id)">Delete</button>
                     </div>
 
                 </div>

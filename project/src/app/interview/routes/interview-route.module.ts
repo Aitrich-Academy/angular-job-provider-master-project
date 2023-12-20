@@ -7,7 +7,7 @@ import { InterviewViewComponent } from '../components/interview-view/interview-v
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'interview',
     component: InterviewHomeComponent,
     children: [
       {
@@ -19,7 +19,7 @@ const routes: Routes = [
         component: InterviewViewComponent
       },
       {
-        path: 'schedule',
+        path: 'schedule/:id',
         component: InterviewViewComponent
       }
     ]

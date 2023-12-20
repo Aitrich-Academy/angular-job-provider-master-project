@@ -8,10 +8,11 @@ import { environment } from 'src/environments/environment';
 })
 export class ApplicationService {
 
+  jobProviderId=localStorage.getItem('jobProviderId');
   constructor(private http:HttpClient) { }
 
   getApplicants(){
-    return this.http.get<Application[]>(environment.baseurl+'/application');
+    return this.http.get<Application[]>(environment.baseurl+'api/v1/job-provider/'+this.jobProviderId+'/getJobApplicants');
   }
 
 }

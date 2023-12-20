@@ -25,7 +25,7 @@ const routes: Routes = [
         loadChildren: () => import('../../job/job.module').then(m => m.JobModule)
       },
       {
-        path: 'interview',
+        path: '',
         loadChildren: () => import('../../interview/interview.module').then(m => m.InterviewModule)
       },
       {

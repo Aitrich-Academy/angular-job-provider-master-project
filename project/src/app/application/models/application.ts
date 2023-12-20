@@ -1,5 +1,8 @@
 export class Application {
-    jobSeekerName:string='';
-    jobSeekerQualification:string='';
-    jobSeekerExperience:string=''
+    id:any
+    seekerUserName:string='';
+    coverLetter:string='';
+    resumeTitle:string='';
+    jobPostJobTitle:string='';
+    datesubmitted:Date;
 }
