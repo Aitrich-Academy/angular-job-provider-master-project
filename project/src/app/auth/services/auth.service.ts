@@ -12,13 +12,22 @@ export class AuthService {
   
   constructor(private http: HttpClient) { }
   signUp(user: register) {
-    return this.http.post(`${this.baseUrl}/companies`, user)
+    return this.http.post(environment.baseurl +'api/v1/job-provider/signup/', user)
+  }
+  verifyEmail(signupRequestId:any){
+    
+    return this.http.get(environment.baseurl +'api/v1/job-provider/signup/'+signupRequestId+'/verify-email')
   }
   getToken(): string {
     return localStorage.getItem('accessToken') // Return an empty string if the token is null or undefined
   }
   login(data:UserLogin){
     return this.http.post<any>(this.baseUrl+'api/v1/job-provider/login',data);
+  }
+  setNewPassword(pass: string,jobProviderSignupRequestId:any) {
+    // const data = { password: pass };
+    const jsonString = JSON.stringify(pass);
+    return this.http.post(environment.baseurl +'api/v1/job-provider/signup/'+jobProviderSignupRequestId+'/set-password',jsonString,{ observe: 'response', responseType: 'text' });
   }
 
 }

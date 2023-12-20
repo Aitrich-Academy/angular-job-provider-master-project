@@ -5,15 +5,17 @@ export interface companyMember{
     username: string,
     email: string,
     phone: number,
+    password: string
 }
 
 export interface listMember{
-    companyId:string;
+    id:string;
     firstname: string,
     lastname: string,
     username: string,
     email: string,
     phone: number,
     company: string,
-    jobPosts: string
+    password: string,
+    jobPosts: string[];    
 }

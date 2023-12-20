@@ -10,31 +10,17 @@ import { register } from '../../models/register';
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent {
-  constructor(private authService: AuthService,private router:Router,private formBuilder: FormBuilder) { }
-  employerForm: FormGroup;
+  show:boolean=true;
+  constructor(private authService: AuthService,private router:Router) { }
 
-  
-
-  ngOnInit(): void {
-    this.createForm();
-  }
-
-  createForm() {
-    this.employerForm = this.formBuilder.group({
-      companyName: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', Validators.required]
-    });
-  }
-
-  onSubmit() {
-    if (this.employerForm.valid) {
-      // Implement form submission logic here
-      console.log('Form submitted:', this.employerForm.value);
-    } else {
-      // Handle form errors
-      console.log('Invalid form');
-    }
+  signUp(signUpForm:NgForm){
+    console.log(signUpForm.value);
+    this.authService.signUp(signUpForm.value).subscribe(
+      (response)=>{
+        console.log(response);
+       }
+    )
+    this.show =! this.show;
   }
 
   // signUp(registrationForm: NgForm) {
