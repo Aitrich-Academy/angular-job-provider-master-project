@@ -23,23 +23,4 @@ export class SignupComponent {
     this.show =! this.show;
   }
 
-  // signUp(registrationForm: NgForm) {
-  //   const signUpFormValue = registrationForm.value;
-  //   const user: register= {
-  //     first_name: signUpFormValue.firstName,
-  //     name: signUpFormValue.companyName,
-  //     description:signUpFormValue.description ,
-  //     last_name: signUpFormValue.lastName,
-  //     email: signUpFormValue.email,
-  //     password: signUpFormValue.password,
-  //     phone:signUpFormValue.phoneNumber,
-  //     gender:signUpFormValue.gender
-  //   };
-  //   this.authService.signUp(user).subscribe(
-  //     (res)=>{
-  //       console.log("registered",res)
-  //       this.router.navigate(['login'])
-  //     }
-  //   )
-  // }
 }

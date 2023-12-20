@@ -1,8 +1,9 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { register } from '../models/register';
 import { UserLogin } from '../models/login';
+import { Observable, catchError, throwError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -25,9 +26,9 @@ export class AuthService {
     return this.http.post<any>(this.baseUrl+'api/v1/job-provider/login',data);
   }
   setNewPassword(pass: string,jobProviderSignupRequestId:any) {
-    // const data = { password: pass };
+   
     const jsonString = JSON.stringify(pass);
     return this.http.post(environment.baseurl +'api/v1/job-provider/signup/'+jobProviderSignupRequestId+'/set-password',jsonString,{ observe: 'response', responseType: 'text' });
   }
-
+  
 }
