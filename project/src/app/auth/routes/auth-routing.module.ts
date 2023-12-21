@@ -9,7 +9,7 @@ const routes: Routes = [
   {path:'',component:LoginComponent},
   {path:'login',component:LoginComponent},
   {path:'signup',component:SignupComponent},
-  { path:'set-password', component: SetPasswordComponent },
+  { path:'set-password/:id', component: SetPasswordComponent },
   { path: 'home', loadChildren: () => import('../../home/home.module').then(m => m.HomeModule) },
 
 ];

@@ -48,13 +48,11 @@ export class SetPasswordComponent implements OnInit {
           console.log(`Status Code: ${statusCode}`);
           console.log(response);
 
-          if(statusCode === 200){
-            this.router.navigate(['/login'],{ relativeTo: this.route })
-           }
- 
-           else{
-             this.router.navigate(['/set-password'],{ relativeTo: this.route })
-           }
+          if (statusCode === 200) {
+            this.router.navigate(['/login']);
+          } else {
+            this.router.navigate(['/set-password']);
+          }
         });
       }
     }
