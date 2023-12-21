@@ -10,12 +10,16 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { SpinnerComponent } from './components/spinner/spinner.component';
+import { SetPasswordComponent } from './components/set-password/set-password.component';
 
 
 @NgModule({
   declarations: [
     SignupComponent,
     LoginComponent,
+    SpinnerComponent,
+    SetPasswordComponent
   ],
   imports: [
     CommonModule,

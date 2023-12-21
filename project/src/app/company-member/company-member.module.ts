@@ -4,6 +4,7 @@ import { CompanyMemberRoutingModule } from './routes/company-member-routing.modu
 import { MemberAddComponent } from './components/member-add/member-add.component';
 import { MemberHomeComponent } from './components/member-home/member-home.component';
 import { MemberListComponent } from './components/member-list/member-list.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -15,7 +16,8 @@ import { MemberListComponent } from './components/member-list/member-list.compon
   ],
   imports: [
     CommonModule,
-    CompanyMemberRoutingModule
+    CompanyMemberRoutingModule,
+    ReactiveFormsModule
   ]
 })
 export class CompanyMemberModule { }

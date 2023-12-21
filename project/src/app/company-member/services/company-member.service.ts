@@ -12,18 +12,25 @@ export class CompanyMemberService {
   jobProviderId=localStorage.getItem('jobProviderId');
   companyId=localStorage.getItem('companyId');
 
+
   constructor(private http: HttpClient) {}
 
-  addCompanyMember(data:companyMember){
-     return this.http.post<any>(this.baseurl+'api/Company/job-provider/'+this.companyId+'/addcompanymember',data);
+  addCompanyMember(data:companyMember):Observable<any>{
+     return this.http.post<any>(this.baseurl+'api/Company/job-provider/company/'+this.companyId+'/addcompanymember',data);
    }
 
-   getCompany():Observable<any[]>{   
-    return this.http.get<any[]>(this.baseurl+'api/v1/job-provider/'+this.jobProviderId+'/getCompany');
+   listCompanyMember(): Observable<listMember[]> {
+    return this.http.get<listMember[]>(this.baseurl + 'api/Company/job-provider/company/' + this.companyId + '/listcompanymember');
   }
 
-  listCompanyMember(): Observable<any[]> {
-    return this.http.get<any[]>(this.baseurl + 'api/job-provider/' + this.companyId + '/listcompanymember');
+  removeCompanyMember(companyMemberId: string): Observable<any> {
+    return this.http.delete<any>(this.baseurl + 'api/Company/job-provider/company/' + companyMemberId + '/RemoveCompanyMember/');
   }
-  
+
+
+
+
+
+
+
 }

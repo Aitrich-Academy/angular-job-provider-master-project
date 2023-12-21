@@ -21,12 +21,12 @@ export class MemberAddComponent implements OnInit {
   ngOnInit(): void {
     this.companyMemberForm = this.formBuilder.group({
       firstName: ['', Validators.required],
-      lastName: ['', Validators.required], 
-      username: ['', Validators.required],
+      lastName: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
+      username: ['', Validators.required],
       phone: ['', Validators.required],
+      password: ['', Validators.required],
     });
-
   }
 
   addCompanyMember() {
@@ -42,5 +42,4 @@ export class MemberAddComponent implements OnInit {
       );
     }
   }
-
 }

@@ -31,6 +31,7 @@ export class LoginComponent {
         this.companyService.getCompany().subscribe(response=>{
           localStorage.setItem('companyId',response[0].id);
          console.log(response[0].id);
+         console.log(response)
         })
       },
       (error) => {
