@@ -30,17 +30,16 @@ export class JobService {
     return this.http.post(this.baseurl+'api/v1/company/'+this.companyId+'/job-provider/'+this.jobProviderId+'/job',job);
   }
 
-  updateJob(job:addJob):Observable<any>{
+  updateJob(job:addJob,jobId:any):Observable<any>{
     console.log(job);
  
-    return this.http.put(`${this.baseurl}/jobprovider/jobs?id=${job.id}`,job);
+    return this.http.put(this.baseurl+'api/v1/company/'+this.companyId+'/job-provider/'+this.jobProviderId+'/job/'+jobId,job);
 
   }
 
-  getjobid(jobid:any)
-
-  {
-
+  getJobById(jobid:any):Observable<any>
+ {
+    return this.http.get<any>(this.baseurl+'api/v1/company/'+this.companyId+'/jobs/'+jobid);
   }
    
   deleteJob(id:any){

@@ -28,9 +28,8 @@ export class CompanyService {
     getCategories(): Observable<any[]> {
       return this.http.get<any[]>(this.baseurl+'api/v1/GetCategories');
     }
-    getCompany():Observable<any[]>{
-     
-      return this.http.get<any[]>(this.baseurl+'api/v1/job-provider/'+this.jobProviderId+'/getCompany');
+    getCompany():Observable<company[]>{
+      return this.http.get<company[]>(this.baseurl+'api/v1/job-provider/'+this.jobProviderId+'/getCompany');
     }
   
 }

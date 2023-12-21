@@ -1,91 +1,113 @@
 <div class="row p-2 rounded bg-white m-1 mt-3">
 
-    <div class="col-md-1"></div>
-    <div class="col-md-6 p-4 border-bottom border-2  ">
-      <h3>Update Job</h3>
-    </div>
-    <form [formGroup]="addJobForm" (ngSubmit)="onSubmit()">
-      <div class="row">
-        <div class="col-md-1"></div>
-        <div class="col-md-9">
-  
-          <div class="form-group p-4">
-            <label for="exampleInputEmail1">Job Title</label>
-            <input type="email" class="form-control  py-4" formControlName="title" aria-describedby="emailHelp"
-              placeholder="please enter your job Title">
-            <div class="error-message"
-              *ngIf="addJobForm.controls['title'].invalid && addJobForm.controls['title'].touched">
-              Job Title is required.
-            </div>
-          </div>
-  
-  
-          <div class="form-group p-4">
-            <label for="exampleInputUsername1">Loaction</label>
-            <input type="Username" class="form-control py-4" id="exampleInputUsername1" formControlName="location"
-              placeholder="please enter your location">
-            <div class="error-message"
-              *ngIf="addJobForm.controls['location'].invalid && addJobForm.controls['location'].touched">
-              Location is required.
-            </div>
-          </div>
-  
-          <div class="form-group p-4">
-            <label for="exampleInputUsername1">Job Description</label>
-            <textarea class="form-control py-4" formControlName="description" id="exampleInputEmail1" placeholder="job description">
-            </textarea>
-            <div class="error-message"
-              *ngIf="addJobForm.controls['description'].invalid && addJobForm.controls['description'].touched">
-              jobDescription is required.
-            </div>
-          </div>
-  
-  
+  <div class="col-md-1"></div>
+  <div class="col-md-6 p-4 border-bottom border-2  ">
+    <h3>Post Job</h3>
+  </div>
+  <form [formGroup]="addJobForm" (ngSubmit)="updateJob()">
+    <div class="row">
+      <div class="col-md-1"></div>
+      <div class="col-md-9">
+
         <div class="form-group p-4">
-            <label for="exampleInputEmail1">Job Type</label>
-            <input type="email" class="form-control  py-4" id="exampleInputEmail1" formControlName="type"
-              aria-describedby="emailHelp" placeholder="Job type">
-            <div class="error-message"
-              *ngIf="addJobForm.controls['type'].invalid && addJobForm.controls['type'].touched">
-              Job Type is required.
-            </div>
-  
-          </div> 
-  
-          <div class="form-group p-4">
-            <label for="exampleInputUsername1">Salary</label>
-            <input type="Username" class="form-control  py-4" id="exampleInputUsername1" formControlName="salary"
-              placeholder="Please enter salary">
-            <div class="error-message"
-              *ngIf="addJobForm.controls['salary'].invalid && addJobForm.controls['salary'].touched">
-              Salary is required.
-            </div>
-  
+          <label for="exampleInputEmail1">Job Title</label>
+          <input type="email" class="form-control  py-4" formControlName="jobTitle" aria-describedby="emailHelp"
+            placeholder="please enter your job Title">
+          <div class="error-message"
+            *ngIf="addJobForm.controls['jobTitle'].invalid && addJobForm.controls['jobTitle'].touched">
+            Job Title is required.
           </div>
-  
-         
-          <div class="form-group p-4">
-            <label for="exampleInputUsername1">Onsite</label>
-            <input type="text" class="form-control  py-4" id="exampleInputUsername1" formControlName="workplace"
-              placeholder="please enter workplace">
-            <div class="error-message"
-              *ngIf="addJobForm.controls['workplace'].invalid && addJobForm.controls['workplace'].touched">
-              Onsite /Remote
-            </div> 
-  
-          </div> 
-       
-  
-  
-          <div class="row">
-            <div class="col-md-4 p-4 ms-3 d-inline"><button type="submit" class="btn p-2 text-white px-5"
-                style="background-color: #20A6FC;">UpdateJob</button></div>
-  
-  
-          </div>
-  
         </div>
+
+        <!-- <div class="form-group p-4">
+          <label for="exampleInputEmail1">Company Name</label>
+          <input type="email" class="form-control  py-4" formControlName="company" aria-describedby="emailHelp"
+            placeholder="please enter your company name">
+          <div class="error-message"
+            *ngIf="addJobForm.controls['companyName'].invalid && addJobForm.controls['companyName'].touched">
+            Company Name is required.
+          </div>
+        </div> -->
+
+        <div class="form-group p-4">
+          <label for="exampleInputUsername1">Location</label>
+          <select class="form-control" formControlName="locationId">
+            <option *ngFor="let location of locationName" [value]="location.id">
+              {{ location.name }}
+            </option>
+          </select>
+          <div class="error-message"
+            *ngIf="addJobForm.controls['locationId'].invalid && addJobForm.controls['locationId'].touched">
+            Location is required.
+          </div>
+        </div>
+
+        <div class="form-group p-4">
+          <label for="IndustryName">IndustryName</label>
+          <select class="form-control" formControlName="industryId">
+            <option *ngFor="let industry of industryName" [value]="industry.id">
+              {{ industry.name }}
+            </option>
+          </select>
+          <div class="error-message"
+            *ngIf="addJobForm.controls['industryId'].invalid && addJobForm.controls['industryId'].touched">
+            Location is required.
+          </div>
+        </div>
+
+        <div class="form-group p-4">
+          <label for="jobSummary">Job Summary</label>
+          <textarea class="form-control py-4" formControlName="jobSummary" id="exampleInputEmail1" placeholder="job description">
+          </textarea>
+          <div class="error-message"
+            *ngIf="addJobForm.controls['jobSummary'].invalid && addJobForm.controls['jobSummary'].touched">
+            jobDescription is required.
+          </div>
+        </div>
+
+
+      <div class="form-group p-4">
+          <label for="exampleInputEmail1">jobCategoryName</label>
+          <select class="form-control" formControlName="categoryId">
+            <option *ngFor="let category of catogoryName" [value]="category.id">
+              {{ category.name }}
+            </option>
+          </select>
+          <div class="error-message"
+            *ngIf="addJobForm.controls['categoryId'].invalid && addJobForm.controls['categoryId'].touched">
+            Job category is required.
+          </div>
+
+        </div> 
+
+        <!-- <div class="form-group p-4">
+          <label for="exampleInputUsername1">Salary</label>
+          <input type="Username" class="form-control  py-4" id="exampleInputUsername1" formControlName="salary"
+            placeholder="Please enter salary">
+          <div class="error-message"
+            *ngIf="addJobForm.controls['salary'].invalid && addJobForm.controls['salary'].touched">
+            Salary is required.
+          </div>
+
+        </div> -->
+
+       
+        <!-- <div class="form-group p-4">
+          <label for="postedByNavigationFirstName">PostedByNavigationFirstName</label>
+          <input type="text" class="form-control  py-4" id="postedByNavigationFirstName" formControlName="postedByNavigationFirstName"
+            placeholder="please enter workplace">
+          <div class="error-message"
+            *ngIf="addJobForm.controls['postedByNavigationFirstName'].invalid && addJobForm.controls['postedByNavigationFirstName'].touched">
+            PostedByNavigationFirstName
+          </div> 
+
+        </div>  -->
+       <div class="row">
+          <div class="col-md-4 p-4 ms-3 d-inline"><button type="submit" class="btn p-2 text-white px-5"
+              style="background-color: #20A6FC;">Update Job</button></div>
       </div>
-      </form>
-  
-  
+
+      </div>
+    </div>
+
+  </form>

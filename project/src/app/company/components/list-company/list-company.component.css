@@ -1,0 +1,7 @@
+.company-card {
+    width: 300px;
+    margin: 10px;
+    background-color: rgb(134, 173, 211); /* Change the background color */
+    color: #131212; /* Change the text color */
+    /* Add other styles as needed */
+  }
