@@ -3,13 +3,16 @@ import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { register } from '../models/register';
 import { UserLogin } from '../models/login';
-import { Observable, catchError, throwError } from 'rxjs';
+import { Observable, catchError, tap, throwError } from 'rxjs';
+
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class AuthService {
   baseUrl=environment.baseurl;
+  private role: string = '';
   
   constructor(private http: HttpClient) { }
   signUp(user: register) {
@@ -22,8 +25,17 @@ export class AuthService {
   getToken(): string {
     return localStorage.getItem('accessToken') // Return an empty string if the token is null or undefined
   }
-  login(data:UserLogin){
-    return this.http.post<any>(this.baseUrl+'api/v1/job-provider/login',data);
+  getRole(): string {
+    return this.role;
+  }
+  login(data: UserLogin): Observable<any> {
+    return this.http.post<any>(this.baseUrl + 'api/v1/job-provider/login', data).pipe(
+      tap((response) => {
+        if (response && response.token) {
+          this.role = response.role;
+        }
+      })
+    );
   }
   setNewPassword(pass: string,jobProviderSignupRequestId:any) {
    alert("setnewpswd")

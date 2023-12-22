@@ -27,6 +27,7 @@ export class LoginComponent {
         console.log("login successfully",response.token);
         localStorage.setItem('accessToken',response.token);
         localStorage.setItem('jobProviderId',response.id);
+        localStorage.setItem('role' ,response.role);
         this.router.navigate(['home']);
         this.companyService.getCompany().subscribe(response=>{
           localStorage.setItem('companyId',response[0].id);
